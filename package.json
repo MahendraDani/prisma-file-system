@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npx tsx index.ts",
+    "dev": "npx tsx src/index.ts",
+    "db:seed" : "npx tsx src/seed.ts",
     "studio" : "npx prisma studio"
   },
   "keywords": [],

@@ -126,6 +126,7 @@ exports.Prisma.FolderScalarFieldEnum = {
   id: 'id',
   name: 'name',
   userId: 'userId',
+  parentFolderId: 'parentFolderId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -141,6 +142,11 @@ exports.Prisma.FileScalarFieldEnum = {
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
+};
+
+exports.Prisma.NullsOrder = {
+  first: 'first',
+  last: 'last'
 };
 
 

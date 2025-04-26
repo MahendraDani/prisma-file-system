@@ -15,11 +15,12 @@ model User {
   id String @id @default(uuid())
   name String
   email String
+  
+  folders Folder[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  Folders Folder[]
 }
 
 model Folder {
@@ -29,12 +30,15 @@ model Folder {
   userId String
   user User @relation(fields: [userId],references: [id],onDelete: Cascade)
 
+  parentFolderId String? 
+  parentFolder Folder? @relation("FolderToSubFolders",fields: [parentFolderId],references: [id])
+  subFolders Folder[] @relation("FolderToSubFolders")
   files File[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  @@unique([userId,name]) // unique folder name for a user
+  @@unique([userId,name,parentFolderId]) // unique folder name for a user
 }
 
 model File {
