@@ -3356,6 +3356,7 @@ export namespace Prisma {
   export type FileMinAggregateOutputType = {
     id: string | null
     name: string | null
+    content: string | null
     folderId: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -3364,6 +3365,7 @@ export namespace Prisma {
   export type FileMaxAggregateOutputType = {
     id: string | null
     name: string | null
+    content: string | null
     folderId: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -3372,6 +3374,7 @@ export namespace Prisma {
   export type FileCountAggregateOutputType = {
     id: number
     name: number
+    content: number
     folderId: number
     createdAt: number
     updatedAt: number
@@ -3382,6 +3385,7 @@ export namespace Prisma {
   export type FileMinAggregateInputType = {
     id?: true
     name?: true
+    content?: true
     folderId?: true
     createdAt?: true
     updatedAt?: true
@@ -3390,6 +3394,7 @@ export namespace Prisma {
   export type FileMaxAggregateInputType = {
     id?: true
     name?: true
+    content?: true
     folderId?: true
     createdAt?: true
     updatedAt?: true
@@ -3398,6 +3403,7 @@ export namespace Prisma {
   export type FileCountAggregateInputType = {
     id?: true
     name?: true
+    content?: true
     folderId?: true
     createdAt?: true
     updatedAt?: true
@@ -3479,6 +3485,7 @@ export namespace Prisma {
   export type FileGroupByOutputType = {
     id: string
     name: string
+    content: string
     folderId: string
     createdAt: Date
     updatedAt: Date
@@ -3504,6 +3511,7 @@ export namespace Prisma {
   export type FileSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    content?: boolean
     folderId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -3513,6 +3521,7 @@ export namespace Prisma {
   export type FileSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    content?: boolean
     folderId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -3522,6 +3531,7 @@ export namespace Prisma {
   export type FileSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    content?: boolean
     folderId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -3531,12 +3541,13 @@ export namespace Prisma {
   export type FileSelectScalar = {
     id?: boolean
     name?: boolean
+    content?: boolean
     folderId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type FileOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "folderId" | "createdAt" | "updatedAt", ExtArgs["result"]["file"]>
+  export type FileOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "content" | "folderId" | "createdAt" | "updatedAt", ExtArgs["result"]["file"]>
   export type FileInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     folder?: boolean | FolderDefaultArgs<ExtArgs>
   }
@@ -3555,6 +3566,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       name: string
+      content: string
       folderId: string
       createdAt: Date
       updatedAt: Date
@@ -3984,6 +3996,7 @@ export namespace Prisma {
   interface FileFieldRefs {
     readonly id: FieldRef<"File", 'String'>
     readonly name: FieldRef<"File", 'String'>
+    readonly content: FieldRef<"File", 'String'>
     readonly folderId: FieldRef<"File", 'String'>
     readonly createdAt: FieldRef<"File", 'DateTime'>
     readonly updatedAt: FieldRef<"File", 'DateTime'>
@@ -4436,6 +4449,7 @@ export namespace Prisma {
   export const FileScalarFieldEnum: {
     id: 'id',
     name: 'name',
+    content: 'content',
     folderId: 'folderId',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
@@ -4620,6 +4634,7 @@ export namespace Prisma {
     NOT?: FileWhereInput | FileWhereInput[]
     id?: StringFilter<"File"> | string
     name?: StringFilter<"File"> | string
+    content?: StringFilter<"File"> | string
     folderId?: StringFilter<"File"> | string
     createdAt?: DateTimeFilter<"File"> | Date | string
     updatedAt?: DateTimeFilter<"File"> | Date | string
@@ -4629,6 +4644,7 @@ export namespace Prisma {
   export type FileOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
+    content?: SortOrder
     folderId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -4642,6 +4658,7 @@ export namespace Prisma {
     OR?: FileWhereInput[]
     NOT?: FileWhereInput | FileWhereInput[]
     name?: StringFilter<"File"> | string
+    content?: StringFilter<"File"> | string
     folderId?: StringFilter<"File"> | string
     createdAt?: DateTimeFilter<"File"> | Date | string
     updatedAt?: DateTimeFilter<"File"> | Date | string
@@ -4651,6 +4668,7 @@ export namespace Prisma {
   export type FileOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
+    content?: SortOrder
     folderId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -4665,6 +4683,7 @@ export namespace Prisma {
     NOT?: FileScalarWhereWithAggregatesInput | FileScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"File"> | string
     name?: StringWithAggregatesFilter<"File"> | string
+    content?: StringWithAggregatesFilter<"File"> | string
     folderId?: StringWithAggregatesFilter<"File"> | string
     createdAt?: DateTimeWithAggregatesFilter<"File"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"File"> | Date | string
@@ -4802,6 +4821,7 @@ export namespace Prisma {
   export type FileCreateInput = {
     id?: string
     name: string
+    content: string
     createdAt?: Date | string
     updatedAt?: Date | string
     folder: FolderCreateNestedOneWithoutFilesInput
@@ -4810,6 +4830,7 @@ export namespace Prisma {
   export type FileUncheckedCreateInput = {
     id?: string
     name: string
+    content: string
     folderId: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -4818,6 +4839,7 @@ export namespace Prisma {
   export type FileUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     folder?: FolderUpdateOneRequiredWithoutFilesNestedInput
@@ -4826,6 +4848,7 @@ export namespace Prisma {
   export type FileUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
     folderId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -4834,6 +4857,7 @@ export namespace Prisma {
   export type FileCreateManyInput = {
     id?: string
     name: string
+    content: string
     folderId: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -4842,6 +4866,7 @@ export namespace Prisma {
   export type FileUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -4849,6 +4874,7 @@ export namespace Prisma {
   export type FileUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
     folderId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -5046,6 +5072,7 @@ export namespace Prisma {
   export type FileCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    content?: SortOrder
     folderId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -5054,6 +5081,7 @@ export namespace Prisma {
   export type FileMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    content?: SortOrder
     folderId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -5062,6 +5090,7 @@ export namespace Prisma {
   export type FileMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    content?: SortOrder
     folderId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -5493,6 +5522,7 @@ export namespace Prisma {
   export type FileCreateWithoutFolderInput = {
     id?: string
     name: string
+    content: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -5500,6 +5530,7 @@ export namespace Prisma {
   export type FileUncheckedCreateWithoutFolderInput = {
     id?: string
     name: string
+    content: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -5609,6 +5640,7 @@ export namespace Prisma {
     NOT?: FileScalarWhereInput | FileScalarWhereInput[]
     id?: StringFilter<"File"> | string
     name?: StringFilter<"File"> | string
+    content?: StringFilter<"File"> | string
     folderId?: StringFilter<"File"> | string
     createdAt?: DateTimeFilter<"File"> | Date | string
     updatedAt?: DateTimeFilter<"File"> | Date | string
@@ -5717,6 +5749,7 @@ export namespace Prisma {
   export type FileCreateManyFolderInput = {
     id?: string
     name: string
+    content: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -5752,6 +5785,7 @@ export namespace Prisma {
   export type FileUpdateWithoutFolderInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -5759,6 +5793,7 @@ export namespace Prisma {
   export type FileUncheckedUpdateWithoutFolderInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -5766,6 +5801,7 @@ export namespace Prisma {
   export type FileUncheckedUpdateManyWithoutFolderInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
