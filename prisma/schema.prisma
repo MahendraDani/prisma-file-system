@@ -1,0 +1,51 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id String @id @default(uuid())
+  name String
+  email String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  Folders Folder[]
+}
+
+model Folder {
+  id String @id @default(uuid())
+  name String 
+  
+  userId String
+  user User @relation(fields: [userId],references: [id],onDelete: Cascade)
+
+  files File[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId,name]) // unique folder name for a user
+}
+
+model File {
+  id String @id @default(uuid())
+  name String
+  
+  folderId String
+  folder Folder @relation(fields: [folderId],references: [id],onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([folderId,name]) // unique file names for a folder
+}

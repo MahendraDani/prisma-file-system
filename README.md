@@ -1,0 +1,2 @@
+- [x] File within a folder MUST have a unique name
+- [x] Folders for a single user MUST have a unique name
